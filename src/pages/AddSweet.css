@@ -1,0 +1,154 @@
+/* Add Sweet Page Styles */
+.add-sweet-page {
+  min-height: calc(100vh - 160px);
+  background: linear-gradient(135deg, #ffe6f3 0%, #ffd9ec 40%, #ffeef7 100%);
+  padding: 40px 20px;
+}
+
+.add-sweet-page .container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 16px 40px rgba(255, 182, 193, 0.45);
+}
+
+.add-sweet-page h1 {
+  margin: 0 0 32px;
+  font-size: 28px;
+  color: #7b3f61;
+  text-align: center;
+}
+
+.add-sweet-page .form-group {
+  margin-bottom: 24px;
+}
+
+.add-sweet-page .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #7b3f61;
+  font-size: 15px;
+}
+
+.add-sweet-page .form-group input,
+.add-sweet-page .form-group textarea,
+.add-sweet-page .form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #ffd1e3;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.add-sweet-page .form-group input:focus,
+.add-sweet-page .form-group textarea:focus,
+.add-sweet-page .form-group select:focus {
+  outline: none;
+  border-color: #ff9fc8;
+  box-shadow: 0 0 0 3px rgba(255, 159, 200, 0.25);
+}
+
+.add-sweet-page .form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.ai-description-btn {
+  margin-top: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #ffe5f4;
+  color: #7b3f61;
+  transition: background 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ai-description-btn:hover {
+  background: #ffd0ec;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(255, 159, 200, 0.35);
+}
+
+.add-sweet-page .form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+
+.add-sweet-page .form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.add-sweet-page .cancel-btn,
+.add-sweet-page .submit-btn {
+  flex: 1;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-sweet-page .cancel-btn {
+  background: #ffe5f1;
+  color: #7b3f61;
+  border: none;
+}
+
+.add-sweet-page .cancel-btn:hover {
+  background: #ffd0e4;
+}
+
+.add-sweet-page .submit-btn {
+  background: linear-gradient(135deg, #ffd6ec 0%, #ffb8d8 50%, #ff9fc8 100%);
+  color: #ffffff;
+  border: none;
+}
+
+.add-sweet-page .submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 159, 200, 0.45);
+}
+
+.add-sweet-page .submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Recipe Generator */
+.recipe-generator {
+  margin: 20px 0;
+  padding: 20px;
+  background: #fff4fa;
+  border-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .add-sweet-page .container {
+    padding: 24px;
+  }
+
+  .add-sweet-page h1 {
+    font-size: 24px;
+  }
+
+  .add-sweet-page .form-actions {
+    flex-direction: column;
+  }
+}

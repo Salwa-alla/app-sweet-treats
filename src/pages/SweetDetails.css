@@ -1,0 +1,162 @@
+/* SweetDetails page styles */
+.sweet-details-page {
+  min-height: 100vh;
+  background: #fffafc;
+  padding: 120px 20px 40px;
+}
+
+.sweet-details-page .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sweet-details {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.sweet-image {
+  flex: 1;
+  max-width: 400px;
+}
+
+.sweet-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Favorite Button */
+.sweet-image .favorite-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sweet-image .favorite-btn:hover {
+  transform: scale(1.1);
+}
+
+.sweet-image {
+  position: relative;
+}
+
+.sweet-info {
+  flex: 1;
+}
+
+.sweet-info h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.sweet-category {
+  font-size: 18px;
+  color: #d681bd;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.sweet-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff5c5c;
+  margin-bottom: 20px;
+}
+
+.sweet-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #f0b7da;
+  color: white;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.sweet-actions {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.sweet-actions .edit-link,
+.sweet-actions .delete-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+    color 0.2s ease;
+}
+
+.sweet-actions .edit-link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.45);
+}
+
+.sweet-actions .delete-btn {
+  background: #ffe4e6;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.sweet-actions .edit-link:hover,
+.sweet-actions .delete-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.back-link:hover {
+  background: #ff5c5c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sweet-details {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sweet-image {
+    max-width: 100%;
+  }
+
+  .sweet-info h1 {
+    font-size: 28px;
+  }
+}

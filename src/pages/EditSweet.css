@@ -1,0 +1,105 @@
+.edit-sweet-page {
+  min-height: 80vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #ffe6f3 0%, #ffd9ec 40%, #ffeef7 100%);
+}
+
+.edit-sweet-page .container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(255, 182, 193, 0.45);
+}
+
+.edit-sweet-page h1 {
+  text-align: center;
+  color: #7b3f61;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.edit-sweet-page .form-group {
+  margin-bottom: 20px;
+}
+
+.edit-sweet-page .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #7b3f61;
+  font-weight: 600;
+}
+
+.edit-sweet-page .form-group input,
+.edit-sweet-page .form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ffd1e3;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.edit-sweet-page .form-group input:focus,
+.edit-sweet-page .form-group textarea:focus {
+  outline: none;
+  border-color: #ff9fc8;
+}
+
+.edit-sweet-page .form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.edit-sweet-page .form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.edit-sweet-page .save-btn,
+.edit-sweet-page .cancel-btn {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-sweet-page .save-btn {
+  background: linear-gradient(135deg, #ffd6ec 0%, #ffb8d8 50%, #ff9fc8 100%);
+  color: #ffffff;
+}
+
+.edit-sweet-page .save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 159, 200, 0.45);
+}
+
+.edit-sweet-page .cancel-btn {
+  background: #ffe5f1;
+  color: #7b3f61;
+}
+
+.edit-sweet-page .cancel-btn:hover {
+  background: #ffd0e4;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .edit-sweet-page .container {
+    padding: 25px;
+  }
+  
+  .edit-sweet-page h1 {
+    font-size: 1.5rem;
+  }
+  
+  .edit-sweet-page .form-actions {
+    flex-direction: column;
+  }
+}
