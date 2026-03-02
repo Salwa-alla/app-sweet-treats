@@ -123,3 +123,28 @@
 .fav-explore-btn:hover {
   background: #ff5c5c;
 }
+
+@media (max-width: 768px) {
+  .fav-page {
+    padding: 80px 16px;
+  }
+
+  .fav-header h1 {
+    font-size: 20px;
+  }
+
+  .fav-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fav-page {
+    padding: 80px 12px;
+  }
+
+  .fav-grid {
+    grid-template-columns: 1fr;
+  }
+}

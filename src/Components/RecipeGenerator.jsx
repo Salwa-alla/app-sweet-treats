@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "./Botton";
 
 const RecipeGenerator = ({ onRecipeGenerated }) => {
 
@@ -40,9 +39,9 @@ const RecipeGenerator = ({ onRecipeGenerated }) => {
     <div className="recipe-generator">
       <h3>Générer une Recette</h3>
       <p>Cliquez pour générer une recette aléatoire et pré-remplir le formulaire.</p>
-      <Button type="button" onClick={generateRecipe} className="generate-btn">
+      <button type="button" onClick={generateRecipe} className="ai-description-btn">
         🍰 Générer une Recette
-      </Button>
+      </button>
     </div>
   );
 };

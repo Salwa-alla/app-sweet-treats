@@ -65,3 +65,23 @@
   background: #0284c7;
   box-shadow: 0 6px 20px rgba(3, 105, 161, 0.4);
 }
+
+@media (max-width: 600px) {
+  .admin-page {
+    padding: 40px 16px;
+    align-items: flex-start;
+  }
+
+  .admin-page h1 {
+    font-size: 2rem;
+  }
+
+  .admin-page .container {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .admin-btn {
+    width: 100%;
+  }
+}

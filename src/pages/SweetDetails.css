@@ -159,4 +159,19 @@
   .sweet-info h1 {
     font-size: 28px;
   }
+
+  .sweet-actions {
+    flex-direction: column;
+  }
+
+  .sweet-actions .edit-link,
+  .sweet-actions .delete-btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .sweet-details-page {
+    padding: 100px 12px 32px;
+  }
 }

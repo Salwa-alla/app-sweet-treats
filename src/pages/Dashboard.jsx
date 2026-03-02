@@ -16,6 +16,7 @@ const Dashboard = () => {
     ? (sweets.reduce((sum, s) => sum + s.price, 0) / sweets.length).toFixed(2)
     : "0.00";
 
+  const firstSweetId = sweets.length > 0 ? sweets[0].id : null;
   useEffect(() => {
     dispatch(fetchSweets());
   }, [dispatch]);
@@ -52,6 +53,23 @@ const Dashboard = () => {
               </div>
             </div>
 
+            <div className="dashboard-bottom-bar">
+              <div className="bottom-user">
+                <div className="bottom-user-avatar">
+                  <span>
+                    {user?.name ? user.name.charAt(0).toUpperCase() : "A"}
+                  </span>
+                </div>
+                <div className="bottom-user-info">
+                  <div className="bottom-user-name">
+                    {user?.name || "Admin"}
+                  </div>
+                  <div className="bottom-user-email">
+                    {user?.email || "admin@gmail.com"}
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="dashboard-stats">
               <div className="stat-card">
                 <h3>Total des desserts</h3>
@@ -94,8 +112,24 @@ const Dashboard = () => {
                 <Link to="/add" className="main-action-btn primary">
                   + Ajouter
                 </Link>
-                <a href="#dashboard-table" className="main-action-btn ghost">
-                  ✏️ Modifier
+                {firstSweetId ? (
+                  <Link
+                    to={`/edit/${firstSweetId}`}
+                    className="main-action-btn ghost"
+                  >
+                    ✏️ Modifier
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    className="main-action-btn ghost"
+                    disabled
+                  >
+                    ✏️ Modifier
+                  </button>
+                )}
+                <a href="#dashboard-table" className="main-action-btn danger">
+                  Supprimer
                 </a>
               </div>
             )}
@@ -109,24 +143,6 @@ const Dashboard = () => {
               </div>
             ) : (
               <>
-                <div className="dashboard-bottom-bar">
-                  <div className="bottom-user">
-                    <div className="bottom-user-avatar">
-                      <span>
-                        {user?.name ? user.name.charAt(0).toUpperCase() : "A"}
-                      </span>
-                    </div>
-                    <div className="bottom-user-info">
-                      <div className="bottom-user-name">
-                        {user?.name || "Admin"}
-                      </div>
-                      <div className="bottom-user-email">
-                        {user?.email || "admin@gmail.com"}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
                 <div className="dashboard-section-header">
                   <div>
                     <h2>Liste des Desserts</h2>

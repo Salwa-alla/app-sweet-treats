@@ -2,13 +2,8 @@ import axios from "axios";
 import products from "../data/products";
 
 const API_BASE_URL = "https://6977da105b9c0aed1e8786b6.mockapi.io";
-
-const api = axios.create({
-  baseURL: API_BASE_URL,
-});
-
 let mockUsers = [
-  { id: 3, name: "Admin", email: "admin@gmail.com", password: "1234" },
+  { id: 3, name: "Admin", email: "admin@gmail.com", password: "123admin" },
 ];
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -21,8 +16,8 @@ const normalizeSweet = (sweet) => ({
 });
 
 export const fetchSweets = () => {
-  return api
-    .get("/products")
+  return axios
+    .get(`${API_BASE_URL}/products`)
     .then((response) => {
       const data = response.data || [];
       if (Array.isArray(data) && data.length > 0) {
@@ -47,8 +42,8 @@ export const fetchSweets = () => {
 };
 
 export const fetchSweetsByUser = (userId) => {
-  return api
-    .get("/products", {
+  return axios
+    .get(`${API_BASE_URL}/products`, {
       params: { userId },
     })
     .then((response) => response.data.map(normalizeSweet))
@@ -63,17 +58,25 @@ export const addSweet = (sweetData) => {
     isFavorite: sweetData.isFavorite ?? false,
   };
 
-  return api
-    .post("/products", payload)
-    .then((response) => normalizeSweet(response.data))
+  const mainRequest = axios
+    .post(`${API_BASE_URL}/products`, payload)
+    .then((response) => normalizeSweet(response.data));
+
+  axios
+    .post(
+      "https://salwa.app.n8n.cloud/webhook/073762e9-0adc-4064-bc62-d396fd05af56",
+      payload
+    )
     .catch((error) => {
-      throw new Error(error.response?.data?.message || error.message);
+      console.log("n8n error:", error?.message || error);
     });
+
+  return mainRequest;
 };
 
 export const updateSweet = (id, updatedData) => {
-  return api
-    .put(`/products/${id}`, updatedData)
+  return axios
+    .put(`${API_BASE_URL}/products/${id}`, updatedData)
     .then((response) => normalizeSweet(response.data))
     .catch((error) => {
       throw new Error(error.response?.data?.message || error.message);
@@ -81,8 +84,8 @@ export const updateSweet = (id, updatedData) => {
 };
 
 export const deleteSweet = (id) => {
-  return api
-    .delete(`/products/${id}`)
+  return axios
+    .delete(`${API_BASE_URL}/products/${id}`)
     .then(() => ({ success: true }))
     .catch((error) => {
       throw new Error(error.response?.data?.message || error.message);
@@ -90,14 +93,14 @@ export const deleteSweet = (id) => {
 };
 
 export const toggleFavorite = (id) => {
-  return api
-    .get(`/products/${id}`)
+  return axios
+    .get(`${API_BASE_URL}/products/${id}`)
     .then((current) => {
       const updated = {
         ...current.data,
         isFavorite: !current.data.isFavorite,
       };
-      return api.put(`/products/${id}`, updated);
+      return axios.put(`${API_BASE_URL}/products/${id}`, updated);
     })
     .then((response) => normalizeSweet(response.data))
     .catch((error) => {
