@@ -1,34 +1,40 @@
 .card {
   position: relative;
-  background: white;
-  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
 }
 
 /* link */
 .card-link {
   text-decoration: none;
   color: inherit;
+  display: block;
+  height: 100%;
 }
 
 /* image */
 .card-image {
   width: 100%;
-  height: 220px;
+  height: 190px;
   overflow: hidden;
+  border-radius: 18px 18px 0 0;
 }
 
 .card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: 0.4s;
+  transition: transform 0.4s ease;
 }
 
 .card:hover .card-image img {
@@ -37,22 +43,49 @@
 
 /* content */
 .card-content {
-  padding: 15px;
+  padding: 14px 16px 16px;
 }
 
 .card-title {
-  font-size: 18px;
-  margin-bottom: 6px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #374151;
+}
+
+.card-price,
+.card-category {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .card-price {
-  font-weight: bold;
-  color: #e973c9;
+  margin-right: 8px;
+  background: radial-gradient(
+    circle at 0% 0%,
+    #ffe6f3 0%,
+    #fda4c8 38%,
+    #fb7185 100%
+  );
+  color: #fffdfd;
+  box-shadow: 0 6px 16px rgba(249, 168, 212, 0.55);
+  border: 1px solid rgba(255, 241, 246, 0.9);
 }
 
 .card-category {
-  font-size: 13px;
-  color: #777;
+  background: rgba(255, 255, 255, 0.96);
+  color: #4b5563;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 /* actions hidden */
@@ -65,6 +98,7 @@
   opacity: 0;
   transform: translateY(-10px);
   transition: 0.3s;
+  z-index: 3;
 }
 
 /* show on hover */
@@ -74,8 +108,8 @@
 }
 
 /* buttons */
-.favorite-btn,
-.delete-btn {
+.delete-btn,
+.cart-btn {
   border: none;
   background: rgba(255,255,255,0.9);
   backdrop-filter: blur(6px);
@@ -86,11 +120,8 @@
   transition: 0.2s;
 }
 
-.favorite-btn:hover {
-  transform: scale(1.1);
-}
-
-.delete-btn:hover {
+.delete-btn:hover,
+.cart-btn:hover {
   background: #ff4d4d;
   color: white;
 }

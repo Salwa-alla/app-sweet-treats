@@ -12,6 +12,7 @@
   background-size: cover;
   background-position: center 32%;
   filter: brightness(0.5);
+  animation: heroFloat 16s ease-in-out infinite alternate;
 }
 
   
@@ -50,18 +51,64 @@
 
 .badge {
   display: inline-block;
-  background-color: #db63a9;
-  padding: 8px 16px;
-  border-radius: 20px;
-  margin-bottom: 15px;
-  font-size: 0.9rem;
-  font-weight: bold;
+  padding: 7px 18px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: radial-gradient(
+    circle at 0% 0%,
+    #ffe6f3 0%,
+    #fda4c8 38%,
+    #fb7185 100%
+  );
+  color: #fffdfd;
+  box-shadow: 0 10px 24px rgba(249, 168, 212, 0.6);
+  border: 1px solid rgba(255, 241, 246, 0.95);
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .badge:hover {
-  background-color: #ff4757;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(251, 113, 133, 0.55);
+  background: radial-gradient(
+    circle at 0% 0%,
+    #fff5fb 0%,
+    #fda4c8 35%,
+    #fb7185 100%
+  );
+}
+
+.badge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.6), transparent 50%);
+  opacity: 0;
+  transform: translateX(-40%);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.badge:hover::before {
+  opacity: 1;
+  transform: translateX(40%);
+}
+
+@keyframes heroFloat {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.04) translateY(-10px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* Responsive */

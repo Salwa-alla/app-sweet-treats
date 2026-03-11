@@ -49,7 +49,9 @@ const Dashboard = () => {
             <div className="dashboard-header">
               <div className="dashboard-header-text">
                 <h1>Tableau de Bord Administrateur</h1>
-                <p>Bienvenue, {user?.name || "Admin"} !</p>
+                <p className="dashboard-welcome">
+                  Bienvenue, {user?.name || "Admin"} !
+                </p>
               </div>
             </div>
 
@@ -180,13 +182,6 @@ const Dashboard = () => {
                           <td>{sweet.price.toFixed(2)}€</td>
                           <td>
                             <div className="action-buttons">
-                              <Link 
-                                to={`/sweet/${sweet.id}`} 
-                                className="view-btn"
-                                title="Voir"
-                              >
-                                <span className="action-icon">👁️</span>
-                              </Link>
                               <Link 
                                 to={`/edit/${sweet.id}`} 
                                 className="edit-btn"

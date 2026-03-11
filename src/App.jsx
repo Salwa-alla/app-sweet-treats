@@ -3,8 +3,9 @@ import Home from "./pages/Home";
 import SweetDetails from "./pages/SweetDetails";
 import AddSweet from "./pages/AddSweet";
 import EditSweet from "./pages/EditSweet";
-import Favorites from "./pages/Favorites";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Cart from "./pages/Cart";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Nav from "./Components/Nav";
@@ -23,8 +24,9 @@ function App() {
           <Route path="/sweet/:id" element={<SweetDetails />} />
           <Route path="/add" element={<AddSweet />} />
           <Route path="/edit/:id" element={<EditSweet />} />
-          <Route path="/favorites" element={<Favorites />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/dashboard" element={
             <PrivateRoute>
               <Dashboard />

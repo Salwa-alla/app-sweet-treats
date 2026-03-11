@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleFavorite, deleteSweetAsync } from "../redux/sweetsSlice";
+import { deleteSweetAsync } from "../redux/sweetsSlice";
 import "./SweetDetails.css";
 
 const SweetDetails = () => {
@@ -11,7 +11,6 @@ const SweetDetails = () => {
   
   const sweets = useSelector((state) => state.sweets.sweets);
   const sweet = sweets.find((s) => s.id === parseInt(id));
-  const isFavorite = sweet?.isFavorite || false;
 
   if (!sweet) {
     return (
@@ -46,22 +45,12 @@ const SweetDetails = () => {
     }
   };
 
-  const handleToggleFavorite = () => {
-    dispatch(toggleFavorite(sweet.id));
-  };
-
   return (
     <div className="sweet-details-page">
       <div className="container">
         <div className="sweet-details">
           <div className="sweet-image">
             <img src={sweet.image} alt={sweet.name} />
-            <button 
-              className={`favorite-btn ${isFavorite ? "active" : ""}`}
-              onClick={handleToggleFavorite}
-            >
-              {isFavorite ? "❤️" : "🤍"}
-            </button>
           </div>
           <div className="sweet-info">
             <h1>{sweet.name}</h1>

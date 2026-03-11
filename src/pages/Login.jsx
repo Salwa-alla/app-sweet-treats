@@ -37,7 +37,7 @@ const Login = () => {
           <div className="login-container">
             <h2>Login</h2>
 
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} className="login-form">
               <div className="form-group">
                 <label>Email</label>
                 <input
@@ -69,6 +69,16 @@ const Login = () => {
               >
                 {loading ? "Connexion..." : "Se connecter"}
               </button>
+              <div className="login-footer">
+                <span>Vous n'avez pas de compte ?</span>
+                <button
+                  type="button"
+                  className="login-register-link"
+                  onClick={() => navigate("/register")}
+                >
+                  Créer un compte
+                </button>
+              </div>
             </form>
           </div>
         </div>

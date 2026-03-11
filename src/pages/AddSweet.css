@@ -130,14 +130,6 @@
   cursor: not-allowed;
 }
 
-/* Recipe Generator */
-.recipe-generator {
-  margin: 20px 0;
-  padding: 20px;
-  background: #fff4fa;
-  border-radius: 12px;
-}
-
 /* Responsive */
 @media (max-width: 600px) {
   .add-sweet-page .container {

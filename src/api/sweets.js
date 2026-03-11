@@ -14,7 +14,6 @@ const normalizeSweet = (sweet) => ({
   price: typeof sweet.price === "string" ? parseFloat(sweet.price) : sweet.price,
   isFavorite: Boolean(sweet.isFavorite),
 });
-
 export const fetchSweets = () => {
   return axios
     .get(`${API_BASE_URL}/products`)
@@ -79,7 +78,11 @@ export const updateSweet = (id, updatedData) => {
     .put(`${API_BASE_URL}/products/${id}`, updatedData)
     .then((response) => normalizeSweet(response.data))
     .catch((error) => {
-      throw new Error(error.response?.data?.message || error.message);
+      console.log(
+        "MockAPI updateSweet: error, updating locally only",
+        error?.message || error
+      );
+      return normalizeSweet({ id, ...updatedData });
     });
 };
 
@@ -130,7 +133,14 @@ export const registerUser = (userData) => {
   return delay(800).then(() => {
     const users = mockUsers;
 
-    if (users.find((u) => u.email === userData.email)) {
+    const normalizedEmail = userData.email.trim().toLowerCase();
+    if (
+      users.find(
+        (u) =>
+          u.email &&
+          u.email.trim().toLowerCase() === normalizedEmail
+      )
+    ) {
       throw new Error("Cet email est déjà utilisé");
     }
 

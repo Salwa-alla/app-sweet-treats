@@ -33,16 +33,68 @@ const Home = () => {
     return matchesSearch && matchesCategory;
   });
 
+  const scrollToDesserts = () => {
+    const section = document.getElementById("desserts-section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleMacaronChocolatClick = () => {
+    scrollToDesserts();
+  };
+
   return (
     <div className="home-page">
       <Hero
         onBadgeClick={() => {
-          const section = document.getElementById("desserts-section");
+          const section = document.getElementById("home-hero-discover");
           if (section) {
             section.scrollIntoView({ behavior: "smooth" });
           }
         }}
       />
+
+      <section className="home-hero-section" id="home-hero-discover">
+        <div className="home-hero-inner">
+          <div className="home-hero-header">
+            <h2 className="home-hero-title">
+              Des douceurs à partager avec ceux que vous aimez
+            </h2>
+            <p className="home-hero-text">
+              Cupcakes, gâteaux et cookies faits maison avec amour. Choisissez
+              votre douceur préférée et partagez un moment sucré.
+            </p>
+          </div>
+
+          <div className="home-hero-cards">
+            <div className="hero-category-card">
+              <div className="hero-category-image">
+                <img src="/dessert2.jpeg" alt="Macarons bleus" />
+              </div>
+              <span className="hero-category-label">Macarons glacés</span>
+            </div>
+
+            <div
+              className="hero-category-card"
+              onClick={handleMacaronChocolatClick}
+              style={{ cursor: "pointer" }}
+            >
+              <div className="hero-category-image">
+                <img src="/dessert3.jpeg" alt="Macarons chocolat" />
+              </div>
+              <span className="hero-category-label">Macarons chocolat</span>
+            </div>
+
+            <div className="hero-category-card">
+              <div className="hero-category-image">
+                <img src="/dessert4.png" alt="Macarons myrtilles" />
+              </div>
+              <span className="hero-category-label">Macarons myrtilles</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div className="container" id="desserts-section">
         <SearchFilter
